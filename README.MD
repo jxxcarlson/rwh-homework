@@ -1,3 +1,3 @@
 My homework exercises while working through Real World Haskell
 
-- April 9, page 31
+[Log and comments](https://jxxcarlson.blog/2020/04/10/real-world-haskell-log/)
