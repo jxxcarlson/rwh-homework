@@ -1,3 +1,5 @@
+import Data.List (sortBy)
+
 -- Problem 1,2.
 
 myLength :: [a] -> Int
@@ -17,7 +19,7 @@ mean list =
   where
     n = fromIntegral $ length list
 
--- Problem 4.
+-- Problems 4, 5.
 
 dropAtEnd :: Int -> [a] -> [a]
 dropAtEnd k list =
@@ -51,3 +53,21 @@ isOddPalindrome list =
   where
     n = length list
     halfOfList = take ((div n 2) + 1) list
+
+
+-- Problem 6.
+
+compareLength :: [a] -> [a] -> Ordering
+compareLength a b
+  | la > lb      = GT
+  | la == lb     = EQ
+  | la < lb      = LT
+  where
+    la = length a
+    lb = length b
+
+-- sortByLength [[1,2,3], [1,2], [2], [3,4,5,6]]
+-- [[2],[1,2],[1,2,3],[3,4,5,6]]
+sortByLength :: [[a]] -> [[a]]
+sortByLength list =
+  sortBy compareLength list
