@@ -23,9 +23,9 @@ main = mainWith myFunction
 transposeString :: String -> String
 transposeString str =
  let
-   strs = transpose $ explodeLines $ lines str
+   strs = transpose $ explodeLines $ padLines $ lines str
  in
-  intersperse '\n' $ fmap concat strs
+  (intersperse '\n' $ fmap concat strs) ++ "\n"
 
 
 explode :: String -> [String]
@@ -81,3 +81,30 @@ intersperse i (x:xs)
     | length xs > 0    = x ++ [i] ++ (intersperse i xs)
     | xs == [ ]         = x
 intersperse i [] = []
+
+
+maxOfList :: [Int] -> Int
+maxOfList [] = 0
+maxOfList (x:xs) =
+  max x (maxOfList xs)
+
+lengthOfLongestLine :: [String] -> Int
+lengthOfLongestLine strs = maxOfList $ fmap length strs
+
+padding :: Int -> String -> String
+padding n str = concat $ take n $ repeat str
+
+padRight :: Int -> String -> String -> String
+padRight k x str =
+  let
+    n = max 0 (k - (length str) )
+    padding_ = padding n x
+  in
+    str ++ padding_
+
+padLines :: [String] -> [String]
+padLines strs =
+  let
+    n = lengthOfLongestLine strs
+  in
+  fmap (padRight n "*") strs

@@ -13,16 +13,16 @@ e v
 ste
 tir
 .m 
-es
- p
-si
-al
-vl
-ee
-sd
-  
-nm
-ii
-nl
-ek
-..
+*es
+* p
+*si
+*al
+*vl
+*ee
+*sd
+*  
+*nm
+*ii
+*nl
+*ek
+*..

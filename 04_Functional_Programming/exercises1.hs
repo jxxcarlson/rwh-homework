@@ -125,6 +125,12 @@ padRight k x str =
   in
     str ++ padding_
 
+padLines :: [String] -> [String]
+padLines strs =
+  let
+    n = lengthOfLongestLine strs
+  in
+  fmap (padRight n "*") strs
 
 
 a = "abc\ndef\ngh"
